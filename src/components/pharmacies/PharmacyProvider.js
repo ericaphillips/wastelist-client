@@ -15,6 +15,15 @@ export const PharmacyProvider = (props) => {
             .then(setPharmacies)
     }
 
+    const getPharmacyById = id => {
+        return fetch(`http://localhost:8000/pharmacies/${id}`, {
+            "headers": {
+                "Authorization": `Token ${localStorage.getItem("waste_token")}`
+            }
+        })
+            .then(res => res.json())
+    }
+
     const addPharmacy = pharmacy => {
         return fetch("http://localhost:8000/pharmacies", {
             method: "POST",
@@ -57,7 +66,7 @@ export const PharmacyProvider = (props) => {
     */
     return (
         <PharmacyContext.Provider value={{
-            pharmacies, addPharmacy, getPharmacies, removePharmacy, updatePharmacy
+            pharmacies, addPharmacy, getPharmacies, getPharmacyById, removePharmacy, updatePharmacy
         }}>
             {props.children}
         </PharmacyContext.Provider>
