@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "./auth.css"
+import { Form, Button } from "react-bootstrap"
 
 export const Login = props => {
     const email = React.createRef()
@@ -24,7 +25,7 @@ export const Login = props => {
             .then(res => res.json())
             .then(res => {
                 if ("valid" in res && res.valid && "token" in res) {
-                    localStorage.setItem( "rare_token", res.token )
+                    localStorage.setItem( "waste_token", res.token )
                     props.history.push("/")
                 }
                 else {
@@ -41,7 +42,7 @@ export const Login = props => {
             </dialog>
             <section>
                 <form className="form--login" onSubmit={handleLogin}>
-                    <h1>Waste List Sign Up</h1>
+                    <h1>Waste List</h1>
                     <h2>Please sign in</h2>
                     <div>
                         <label htmlFor="inputEmail"> Email address </label>
