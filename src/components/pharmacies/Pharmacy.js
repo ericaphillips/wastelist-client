@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import { PharmacyContext } from "../pharmacies/PharmacyProvider"
+import { PharmacyContext } from "./PharmacyProvider"
 import { useHistory } from "react-router-dom"
 // import './Pharmacy.css'
 
