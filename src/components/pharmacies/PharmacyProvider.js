@@ -44,7 +44,7 @@ export const PharmacyProvider = (props) => {
                 "Authorization": `Token ${localStorage.getItem("waste_token")}`  
             },
         })
-            .then(getCategories)
+            .then(getPharmacies)
     }
 
     const updatePharmacy = pharmacy => {

@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "react-router-dom"
 import "./auth.css"
 
+
 export const Register = (props) => {
     const firstName = React.createRef()
     const lastName = React.createRef()
@@ -37,7 +38,7 @@ export const Register = (props) => {
                 .then(res => res.json())
                 .then(res => {
                     if ("token" in res) {
-                        localStorage.setItem("rare_token", res.token)
+                        localStorage.setItem("waste_token", res.token)
                         props.history.push("/")
                     }
                 })
