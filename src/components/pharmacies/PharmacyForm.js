@@ -72,19 +72,19 @@ export const PharmacyForm = (props) => {
             <Form >
                 <Form.Group controlId="formBasicName">
                     <Form.Label>Pharmacy Name</Form.Label>
-                    <Form.Control type="name" onChange={handleControlledInputChange} value={pharmacy.name} placeholder="Name"/>
+                    <Form.Control type="name" name="name" onChange={handleControlledInputChange} value={pharmacy.name} placeholder="Name"/>
                 </Form.Group>
                 <Form.Group controlId="formBasicAddress">
                     <Form.Label>Pharmacy Address</Form.Label>
-                    <Form.Control type="address" onChange={handleControlledInputChange} value={pharmacy.address} placeholder="Address"/>
+                    <Form.Control type="address" name="address" onChange={handleControlledInputChange} value={pharmacy.address} placeholder="Address"/>
                 </Form.Group>
                 <Form.Group controlId="formBasicZipcode">
                     <Form.Label>Pharmacy Zipcode</Form.Label>
-                    <Form.Control type="zipcode" onChange={handleControlledInputChange} value={pharmacy.zipcode} placeholder="Zip"/>
+                    <Form.Control type="zipcode" name="zipcode" onChange={handleControlledInputChange} value={pharmacy.zipcode} placeholder="Zip"/>
                 </Form.Group>
                 <Form.Group controlId="formBasicName">
                     <Form.Label>Pharmacy's Vaccine Appointment Hours</Form.Label>
-                    <Form.Control type="appointment_hours" onChange={handleControlledInputChange} value={pharmacy.appointment_hours} placeholder="Appointment Hours"/>
+                    <Form.Control type="appointment_hours" name="appointment_hours" onChange={handleControlledInputChange} value={pharmacy.appointment_hours} placeholder="Appointment Hours"/>
                 </Form.Group>
                 <Button className="SaveButton" variant="dark" size="lg" type="submit" 
                 onClick={event => {

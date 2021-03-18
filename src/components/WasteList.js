@@ -1,7 +1,7 @@
 import React from "react"
 import { Route, Redirect } from "react-router-dom"
 import { ApplicationViews } from "./ApplicationViews"
-// import { NavBar } from "./nav/NavBar"
+import { NavBar } from "./nav/NavBar"
 import { Login } from "./auth/Login"
 import { Register } from "./auth/Register"
 
@@ -13,7 +13,7 @@ export const WasteList = (props) => (
             if (localStorage.getItem("waste_token")) {
                 return (
                     <>
-                        {/* <Route render={props => <NavBar {...props} />} /> */}
+                        <Route render={props => <NavBar {...props} />} />
                         <Route render={props => <ApplicationViews {...props} />} />
                     </>
                 )
