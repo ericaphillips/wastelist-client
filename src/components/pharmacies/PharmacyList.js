@@ -19,10 +19,10 @@ export const PharmacyList = (props) => {
                 </button>
                 <div className="column">
                     {pharmacies
-                    // .filter(c => c.userId === userId)
+                    
                     .map(pharmacy => {
                             return <Pharmacy key={pharmacy.id} 
-                            category={pharmacy} props={props} 
+                            pharmacy={pharmacy} props={props} 
                         
                             />
                     })
