@@ -12,6 +12,7 @@ export const User = ({ user }) => {
         <h3 className="user--name">{user.user.first_name} {user.user.last_name}</h3>
         <div className="user--phone">{user.phone}</div>
         <div className="user--zip">{user.zipcode}</div>
+        {/* <div className="user--pharmacy">{user.pharmacy.name}</div> */}
     </section>
     )
 }
