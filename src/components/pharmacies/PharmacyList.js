@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { PharmacyContext } from "../pharmacies/PharmacyProvider"
+import { PharmacyContext } from "./PharmacyProvider"
 import { Pharmacy } from "./Pharmacy"
 
 export const PharmacyList = (props) => {

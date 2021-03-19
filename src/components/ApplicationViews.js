@@ -3,6 +3,8 @@ import { Route } from "react-router-dom";
 import { PharmacyForm } from "./pharmacies/PharmacyForm"
 import { PharmacyProvider } from "./pharmacies/PharmacyProvider"
 import { PharmacyList } from "./pharmacies/PharmacyList"
+import { UserProvider } from "./users/UserProvider"
+import { UserList } from "./users/UserList"
 
 export const ApplicationViews = () => {
     return (
@@ -20,6 +22,13 @@ export const ApplicationViews = () => {
                 props => <PharmacyForm {...props} />
             } />
         </PharmacyProvider>
+        <UserProvider>
+        <Route exact path="/users" render={
+                props => <>
+                <UserList {...props} />
+                </>
+            } />
+        </UserProvider>
         </>
     )
 }

@@ -10,7 +10,7 @@ export const PharmacyForm = (props) => {
     const [pharmacy, setPharmacy] = useState({})
 
     // Check if object has "pharmacy_id", if it does it is to be edited and not created
-    const toEdit = props.match.params.hasOwnProperty("id")
+    const toEdit = props.match.params.hasOwnProperty("pharmacyId")
 
     const handleControlledInputChange = (event) => {
         /* When changing a state object or array, create a new one
