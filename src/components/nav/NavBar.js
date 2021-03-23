@@ -10,33 +10,43 @@ export const NavBar = (props) => {
             <div className="navbar__item">
                 {/* <img className="navbar__logo" src={Logo} /> */}
             </div>
-            {/* uncomment this if you want links instead of buttons */}
-            {/* <li className="nav-item">
-                <Link className="nav-link" to="/posts">Posts</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/posts/create">New Posts</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/myposts">My Posts</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/categories">Categories</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/tags">Tag Management</Link>
-            </li>
-            <li className="nav-item">
-                <Link className="nav-link" to="/profile">Profiles</Link>
-            </li> */}
-            <button className="navbutton" onClick={() => {
+            {/* For Customers */}
+            {
+                (localStorage.getItem("pharmacist") === "false")
+                ?   <>
+                <button className="navbutton" onClick={() => {
                 props.history.push(`/pharmacies`)
-            }}>All Pharmacies
-            </button>
-            <button className="navbutton" onClick={() => {
+                }}>All Pharmacies
+                </button>
+                <button className="navbutton" onClick={() => {
                 props.history.push(`/mypharmacies`)
-            }}>My Pharmacies
-            </button>
+                }}>My Pharmacies
+                </button>
+                <button className="navbutton" onClick={() => {
+                props.history.push(`/myappointments`)
+                }}>My Appointments
+                </button>
+                </>
+                :<>
+                {/* For Pharmacists */}
+                <button className="navbutton" onClick={() => {
+                props.history.push(`/mypharmacy`)
+                }}>My Pharmacy
+                </button>
+                <button className="navbutton" onClick={() => {
+                props.history.push(`/patients`)
+                }}>Patient Selector
+                </button>
+                <button className="navbutton" onClick={() => {
+                props.history.push(`/appointments`)
+                }}>Appointments
+                </button>
+                </>
+            }
+            
+            
+            
+            
             {
                 (localStorage.getItem("waste_token") !== null) ?
                     <button className="navbutton"

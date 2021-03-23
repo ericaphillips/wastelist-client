@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { PharmacyContext } from "./PharmacyProvider"
 import { Form, Button } from "react-bootstrap"
+import 'bootstrap/dist/css/bootstrap.min.css'
 
+{/* For Pharmacists */}
 export const PharmacyForm = (props) => {
     // Context prociders for data
     const { pharmacies, addPharmacy, getPharmacies, updatePharmacy } = useContext(PharmacyContext)
