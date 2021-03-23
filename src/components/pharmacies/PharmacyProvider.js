@@ -59,6 +59,28 @@ export const PharmacyProvider = (props) => {
             .then(getPharmacies)
     }
 
+
+    const addMyPharmacy = (pharmacyId) => {
+        return fetch(`http://localhost:8000/pharmacies/${pharmacyId}/modifyCustomers`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",        
+            "Authorization": `Token ${localStorage.getItem("waste_token")}`
+          }
+        })
+          .then(response => response.json())
+      }
+    
+      const deleteMyPharmacy = (pharmacyId) => {
+        return fetch(`http://localhost:8000/pharmacies/${pharmacyId}/modifyCustomers?pharmacyId=${pharmacyId}`, {
+          method: "DELETE",
+          headers: {
+            "Authorization": `Token ${localStorage.getItem("waste_token")}`
+          },
+        })
+        .then(getPharmacies)
+      }
+
     /*
         You return a context provider which has the
         `pharmacies` state and the  function as keys. This
@@ -66,7 +88,7 @@ export const PharmacyProvider = (props) => {
     */
     return (
         <PharmacyContext.Provider value={{
-            pharmacies, addPharmacy, getPharmacies, getPharmacyById, removePharmacy, updatePharmacy
+            pharmacies, addPharmacy, getPharmacies, getPharmacyById, removePharmacy, updatePharmacy, addMyPharmacy, deleteMyPharmacy
         }}>
             {props.children}
         </PharmacyContext.Provider>

@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom"
 // component responsible for rendering a single pharmacy
 
 export const Pharmacy = ({ pharmacy }) => {
-    const { removePharmacy } = useContext(PharmacyContext)
+    const { removePharmacy, addMyPharmacy } = useContext(PharmacyContext)
     const history = useHistory()
 
     const confirmDelete = (id) => {
@@ -22,6 +22,15 @@ export const Pharmacy = ({ pharmacy }) => {
         <div className="pharmacy--zipcode">{pharmacy.zipcode}</div>
         <div className="pharmacy--appointment_hours">{pharmacy.appointmet_hours}</div>
         <div className="buttons">
+            
+            {/* For Pharmacists */}
+            {
+                (localStorage.getItem("pharmacist") === "true")
+                ?   <>
+            <button className="button--edit" onClick={() => {
+                history.push(`/pharmacies/edit/${pharmacy.id}`)
+            }}>Edit Pharmacy Listing
+            </button>
             <button className="button--delete" onClick={
                 () => {
                     confirmDelete(pharmacy.id)
@@ -29,10 +38,15 @@ export const Pharmacy = ({ pharmacy }) => {
             }>
                 Delete Pharmacy Listing
             </button>
-            <button className="button--edit" onClick={() => {
-                history.push(`/pharmacies/edit/${pharmacy.id}`)
-            }}>Edit Pharmacy Listing
-            </button>
+            </>
+            : <>
+            {/* For Customers */}
+            <button onClick={() => {
+                            addMyPharmacy(pharmacy.id);
+						}}>Add to my list
+						</button>
+            </>
+        }   
         </div>
     </section>
     )

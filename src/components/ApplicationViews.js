@@ -9,6 +9,7 @@ import { UserList } from "./users/UserList"
 export const ApplicationViews = () => {
     return (
         <>
+        <UserProvider>
         <PharmacyProvider>
         <Route exact path="/pharmacies" render={
                 props => <>
@@ -22,6 +23,7 @@ export const ApplicationViews = () => {
                 props => <PharmacyForm {...props} />
             } />
         </PharmacyProvider>
+        </UserProvider>
         <UserProvider>
         <Route exact path="/users" render={
                 props => <>

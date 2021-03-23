@@ -3,12 +3,12 @@ import { PharmacyContext } from "./PharmacyProvider"
 import { Pharmacy } from "./Pharmacy"
 import { UserContext } from "../users/UserProvider"
 
-export const PharmacyList = (props) => {
-    const { pharmacies, getPharmacies, addMyPharmacy } = useContext(PharmacyContext)
+{/* For Customers */}
+export const UserPharmacyList = (props) => {
+    const { pharmacies, getPharmacies, addMyPharmacy, deleteMyPharmacy } = useContext(PharmacyContext)
     const { getUsers, users } = useContext(UserContext)
 
-
-    // const currentUser = localStorage.getItem("waste_token")
+    currentUser = localStorage.getItem("waste_token")
 
     useEffect(()=>{
         getUsers()
@@ -18,7 +18,6 @@ export const PharmacyList = (props) => {
     return (
         <>
             <h1>Pharmacies</h1>
-                {/* For Pharmacists */}
                 <button onClick={() => {
                     props.history.push(`/pharmacies/addPharmacy`)
                 }}>Create a new pharmacy
@@ -31,6 +30,16 @@ export const PharmacyList = (props) => {
                             />
                     })
                     }
+                    {pharmacies.map(pharmacy => {
+                        user = users.find(user => user.user.token.key === currentUser)
+                        return <p>
+						<span onClick={() => {
+							addMyPharmacy(pharmacy.id, user.id);
+							getUsers();
+						}}>{pharmacy.name}
+						</span>
+                        </p>
+                    })}
                 </div>
         </>
     )
