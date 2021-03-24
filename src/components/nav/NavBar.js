@@ -19,7 +19,7 @@ export const NavBar = (props) => {
                 }}>All Pharmacies
                 </button>
                 <button className="navbutton" onClick={() => {
-                props.history.push(`/mypharmacies`)
+                props.history.push(`/profile`)
                 }}>My Pharmacies
                 </button>
                 <button className="navbutton" onClick={() => {
