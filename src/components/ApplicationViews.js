@@ -5,6 +5,8 @@ import { PharmacyProvider } from "./pharmacies/PharmacyProvider"
 import { PharmacyList } from "./pharmacies/PharmacyList"
 import { UserProvider } from "./users/UserProvider"
 import { UserList } from "./users/UserList"
+import { ProfileProvider } from "./auth/ProfileProvider"
+import { UserProfile } from "./auth/Profile"
 
 export const ApplicationViews = () => {
     return (
@@ -31,6 +33,12 @@ export const ApplicationViews = () => {
                 </>
             } />
         </UserProvider>
+
+        <ProfileProvider>
+    <Route exact path="/profile">
+        <UserProfile />
+    </Route>
+</ProfileProvider>
         </>
     )
 }
