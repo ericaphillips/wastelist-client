@@ -4,6 +4,7 @@ import "./NavBar.css"
 
 export const NavBar = (props) => {
 
+    // const pharmacy = 
 
     return (
         <ul className="navbar">
@@ -22,30 +23,27 @@ export const NavBar = (props) => {
                 props.history.push(`/profile`)
                 }}>My Pharmacies
                 </button>
-                <button className="navbutton" onClick={() => {
-                props.history.push(`/myappointments`)
-                }}>My Appointments
-                </button>
+                
                 </>
                 :<>
                 {/* For Pharmacists */}
                 <button className="navbutton" onClick={() => {
-                props.history.push(`/mypharmacy`)
+                props.history.push(`/pharmacies/pharmacist?myPharmacy=true`)
                 }}>My Pharmacy
                 </button>
                 <button className="navbutton" onClick={() => {
-                props.history.push(`/patients`)
+                props.history.push(`/pharmacies/pharmacyCustomers?myPharmacyCustomers=true`)
                 }}>Patient Selector
                 </button>
-                <button className="navbutton" onClick={() => {
-                props.history.push(`/appointments`)
-                }}>Appointments
-                </button>
+                
                 </>
             }
             
             
-            
+            <button className="navbutton" onClick={() => {
+                props.history.push(`/messages/`)
+                }}>Messages
+                </button>
             
             {
                 (localStorage.getItem("waste_token") !== null) ?

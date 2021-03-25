@@ -7,6 +7,11 @@ import { UserProvider } from "./users/UserProvider"
 import { UserList } from "./users/UserList"
 import { ProfileProvider } from "./auth/ProfileProvider"
 import { UserProfile } from "./auth/Profile"
+import { MessageProvider } from "./messages/MessageProvider"
+import { PharmacyCustomerList } from "./pharmacies/PharmacyCustomerList"
+import { MessageList } from "./messages/MessageList"
+import { MessageForm } from "./messages/MessageForm"
+import { PharmacistPharmacy } from "./pharmacies/PharmacistPharmacy"
 
 export const ApplicationViews = () => {
     return (
@@ -18,6 +23,16 @@ export const ApplicationViews = () => {
                 <PharmacyList {...props} />
                 </>
             } />
+        <Route path="/pharmacies/pharmacist" render={
+                props => <>
+                <PharmacistPharmacy {...props} />
+                </>
+            } />
+        <Route exact path="/pharmacies/pharmacyCustomers" render={
+                props => <>
+                <PharmacyCustomerList {...props} />
+                </>
+            } />
         <Route exact path ="/pharmacies/addPharmacy" render={
                 props => <PharmacyForm {...props} />
             } />
@@ -26,6 +41,7 @@ export const ApplicationViews = () => {
             } />
         </PharmacyProvider>
         </UserProvider>
+
         <UserProvider>
         <Route exact path="/users" render={
                 props => <>
@@ -33,12 +49,25 @@ export const ApplicationViews = () => {
                 </>
             } />
         </UserProvider>
-
+        <PharmacyProvider>
         <ProfileProvider>
     <Route exact path="/profile">
         <UserProfile />
     </Route>
 </ProfileProvider>
+</PharmacyProvider>
+            <UserProvider>
+            <MessageProvider>
+            <Route exact path="/messages" render={
+                props => <>
+                <MessageList {...props} />
+                </>
+            } />
+            <Route exact path ="/messages/newMessage" render={
+                props => <MessageForm {...props} />
+            } />
+            </MessageProvider>
+            </UserProvider>
         </>
     )
 }

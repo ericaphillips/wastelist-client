@@ -9,12 +9,7 @@ export const Pharmacy = ({ pharmacy }) => {
     const { removePharmacy, addMyPharmacy } = useContext(PharmacyContext)
     const history = useHistory()
 
-    const confirmDelete = (id) => {
-        const d = window.confirm("Would you like to delete this?")
-        if (d === true) {
-            removePharmacy(id)
-        }
-    }
+    
 
     return (<section className="pharmacy">
         <h3 className="pharmacy--name">{pharmacy.name}</h3>
@@ -31,13 +26,7 @@ export const Pharmacy = ({ pharmacy }) => {
                 history.push(`/pharmacies/edit/${pharmacy.id}`)
             }}>Edit Pharmacy Listing
             </button>
-            <button className="button--delete" onClick={
-                () => {
-                    confirmDelete(pharmacy.id)
-                }
-            }>
-                Delete Pharmacy Listing
-            </button>
+            
             </>
             : <>
             {/* For Customers */}

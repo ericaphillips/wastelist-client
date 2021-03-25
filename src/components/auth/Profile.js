@@ -1,9 +1,13 @@
 import React, { useEffect, useContext } from "react"
 import { ProfileContext } from "./ProfileProvider.js"
+import { PharmacyContext } from "../pharmacies/PharmacyProvider"
+import { useHistory } from "react-router-dom"
 
 
 export const UserProfile = () => {
     const { profile, getProfile } = useContext(ProfileContext)
+    const { deleteMyPharmacy } = useContext(PharmacyContext)
+    const history = useHistory()
 
     useEffect(() => {
         getProfile()
@@ -34,6 +38,13 @@ export const UserProfile = () => {
                                 <div>{pharmacy.address}</div>
                                 <div>{pharmacy.zipcode}</div>
                                 <div>{pharmacy.appointment_hours}</div>
+                                <div>
+                                <button onClick={() => {
+                                    history.push(`/pharmacies`)
+                            deleteMyPharmacy(pharmacy.id);
+						}}>Remove from my list
+						</button>
+                                    </div>
                             </div>
                         })
                     }
