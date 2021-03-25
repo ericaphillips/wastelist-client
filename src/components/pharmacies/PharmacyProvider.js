@@ -4,6 +4,7 @@ export const PharmacyContext = React.createContext()
 
 export const PharmacyProvider = (props) => {
     const [pharmacies, setPharmacies] = useState([])
+    const [pharmacy, setPharmacy] = useState({customers:[]})
 
     const getPharmacies = () => {
         return fetch("http://localhost:8000/pharmacies", {
@@ -15,16 +16,28 @@ export const PharmacyProvider = (props) => {
             .then(setPharmacies)
     }
 
-    const getPharmacyById = id => {
-        return fetch(`http://localhost:8000/pharmacies/${id}`, {
+    const getPharmacyById = () => {
+        return fetch(`http://localhost:8000/pharmacies/pharmacist?myPharmacy=true`, {
             "headers": {
                 "Authorization": `Token ${localStorage.getItem("waste_token")}`
             }
         })
             .then(res => res.json())
+            .then(setPharmacy)
+    }
+
+    const getPharmacyCustomers = () => {
+        return fetch(`http://localhost:8000/pharmacies/pharmacyCustomers?myPharmacyCustomers=true`, {
+            "headers": {
+                "Authorization": `Token ${localStorage.getItem("waste_token")}`
+            }
+        })
+            .then(res => res.json())
+            .then(setPharmacy)
     }
 
     const addPharmacy = pharmacy => {
+        //client makes a request
         return fetch("http://localhost:8000/pharmacies", {
             method: "POST",
             headers: {
@@ -88,7 +101,7 @@ export const PharmacyProvider = (props) => {
     */
     return (
         <PharmacyContext.Provider value={{
-            pharmacies, addPharmacy, getPharmacies, getPharmacyById, removePharmacy, updatePharmacy, addMyPharmacy, deleteMyPharmacy
+            pharmacies, addPharmacy, getPharmacies, getPharmacyById, removePharmacy, updatePharmacy, addMyPharmacy, deleteMyPharmacy, pharmacy, getPharmacyCustomers
         }}>
             {props.children}
         </PharmacyContext.Provider>
