@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@503&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+body {
+    font-family: 'Montserrat';
+    color: #230903;
+
+}
+
+.pharmacy {
+    border-radius: 2px;
+    border: 2px solid #053D76;
+    margin-top: 30px;
+    margin-left: 800px;
+    margin-right: 800px;
+    margin-bottom: 30px;
+    color: #230903;
+    padding-top: 7.5px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 9.5px; 
+}
+
+.pharm-noButts {
+    padding-left: 10px;
+}
+
+.message-man {
+    padding-bottom: 10px;
+}
+
+.topOfPage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;  
+}
+
+.topButton {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;  
+}
+
+.button--create {
+    outline: none;
+    background: none;
+    transition: .5s;
+    font-family: 'Montserrat';
+    border-radius: 2px;
+    padding: 5px;
+    margin: 7px;
+    border: 1px solid #427AA1;
+}
+.button--create:hover {
+    transform:scale(1.01); 
+    border: none;
+}
+
+.customer {
+    border-radius: 2px;
+    border: 2px solid #053D76;
+    color: #230903;
+    padding: 5px;
+    margin: 10px
+}

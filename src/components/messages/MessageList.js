@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { MessageContext } from "./MessageProvider"
 import { Message } from "./Message"
 import { UserContext } from "../users/UserProvider"
+import './Message.css'
 
 export const MessageList = (props) => {
     const { messages, getMessages } = useContext(MessageContext)
@@ -16,14 +17,17 @@ export const MessageList = (props) => {
     }, [])
 
     return (
-        <>
+        <><section className="topOfPage">
             <h1>Your Messages</h1>
                 {/* For Pharmacists */}
-                <button onClick={() => {
+                </section>
+            <section className="topButton">
+                <button className="button--create" onClick={() => {
                     props.history.push(`/messages/newMessage`)
                 }}>Create a new message
                 </button>
-                <div className="column">
+                </section>
+                <div className="message-man">
                     {messages.map(message => {
                             return <Message key={message.id} 
                             message={message} props={props} 

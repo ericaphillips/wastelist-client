@@ -18,17 +18,22 @@ export const PharmacyCustomerList = (props) => {
     }, [])
 
     return (
-        <>
+        <><section className="topOfPage">
             <h1>Pharmacies</h1>
+            </section>
                 {/* For Pharmacists */}
-                <button onClick={() => {
+                <section className="topButton">
+                <button className="button--create" onClick={() => {
                     props.history.push(`/pharmacies/addPharmacy`)
                 }}>Create a new pharmacy
                 </button>
-                <div className="column">
+                </section>
+                <div className="pharmacy">
                     {pharmacy.customers.map(c =>
-                        <p>{c.user.first_name}</p>
-
+                        <div className="customer">
+                        <div className="customer-name">{c.user.first_name} {c.user.last_name}</div>
+                        <div className="customer-phone">{c.phone}</div>
+                        </div>
                     )}
                 </div>
         </>

@@ -101,7 +101,7 @@ export const Register = (props) => {
                 <div style={{
                     textAlign: "center"
                 }}>
-                    <button className="btn btn-1 btn-sep icon-send" type="submit">Register</button>
+                    <button className="button-register" type="submit">Register</button>
                 </div>
             </form>
             <section className="link--register">

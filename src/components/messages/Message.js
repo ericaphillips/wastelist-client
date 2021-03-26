@@ -2,7 +2,7 @@ import React, { useContext } from "react"
 import { MessageContext } from "./MessageProvider"
 import { UserContext } from "../users/UserProvider"
 import { useHistory } from "react-router-dom"
-// import './Pharmacy.css'
+import './Message.css'
 
 // component responsible for rendering a single message
 
@@ -19,6 +19,7 @@ export const Message = ({ message }) => {
 
     return (<section className="message">
         <div className="message--sender">From: {message.sender.user.first_name} {message.sender.user.last_name}</div>
+        <div className="message--sender">To: {message.receiver.user.first_name} {message.receiver.user.last_name}</div>
         <div className="message--content">{message.content}</div>
         
        

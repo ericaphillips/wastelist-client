@@ -3,6 +3,7 @@ import { MessageContext } from "./MessageProvider"
 import { UserContext } from "../users/UserProvider"
 import { Form, Button } from "react-bootstrap"
 import 'bootstrap/dist/css/bootstrap.min.css'
+import './Message.css'
 
 {/* For All */}
 export const MessageForm = (props) => {

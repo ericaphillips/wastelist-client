@@ -17,13 +17,17 @@ export const PharmacyList = (props) => {
 
     return (
         <>
+        <section className="topOfPage">
             <h1>Pharmacies</h1>
+            </section>
                 {/* For Pharmacists */}
-                <button onClick={() => {
+                <section className="topButton">
+                <button className="button--create" onClick={() => {
                     props.history.push(`/pharmacies/addPharmacy`)
                 }}>Create a new pharmacy
                 </button>
-                <div className="column">
+                </section>
+                <div className="pharmacy-list">
                     {pharmacies.map(pharmacy => {
                             return <Pharmacy key={pharmacy.id} 
                             pharmacy={pharmacy} props={props} 

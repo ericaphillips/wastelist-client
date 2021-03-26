@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import "./NavBar.css"
+import logo from "../pictures/logo-2.png"
 
 export const NavBar = (props) => {
 
@@ -9,8 +10,9 @@ export const NavBar = (props) => {
     return (
         <ul className="navbar">
             <div className="navbar__item">
-                {/* <img className="navbar__logo" src={Logo} /> */}
+            {/* <img id="logo" alt="Waste List Logo" src={logo} />  */}
             </div>
+            <div className="navLeft">
             {/* For Customers */}
             {
                 (localStorage.getItem("pharmacist") === "false")
@@ -61,7 +63,8 @@ export const NavBar = (props) => {
                             <Link className="nav-link" to="/register">Register</Link>
                         </li>
                     </>
-            }        </ul>
+                    
+            }     </div>   </ul>
     )
 }
 

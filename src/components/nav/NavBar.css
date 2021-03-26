@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@503&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar__item {
+    justify-content: flex-start;
+}
+
+.navLeft {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbutton {
+    outline: none;
+    background: none;
+    transition: .05s;
+    font-family: 'Spartan';
+    border-radius: 2px;
+    padding: 5px;
+    margin: 7px;
+    border: 1px solid #EBF2FA;
+    color: #053D76;
+}
+.navbutton:hover {
+    transform:scale(1.01); 
+    border: none;
+}
+
+#logo {
+    height: 95px;
+    width: 305px
+}
